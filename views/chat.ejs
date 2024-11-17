@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - <%= userGroup %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2><%= userGroup %> Chat</h2>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="border p-3" style="height: 400px; overflow-y: scroll;">
+            <% messages.forEach(function(message) { %>
+                <div><strong><%= message.sender %>:</strong> <%= message.message %></div>
+            <% }); %>
+        </div>
+
+        <!-- Message Input -->
+        <form id="chat-form" class="mt-4">
+            <div class="form-group">
+                <input type="text" id="message" class="form-control" placeholder="Type your message..." required>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+
+        <!-- Group Selector -->
+        <div id="user-group-selector" class="mt-4">
+            <h4>Switch Group</h4>
+            <select id="group-select" class="form-control">
+                <% groups.forEach(function(group) { %>
+                    <option value="<%= group %>" <%= group === userGroup ? 'selected' : '' %>><%= group %></option>
+                <% }); %>
+            </select>
+        </div>
+    </div>
+
+    <!-- Socket.IO and Custom Script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Elements
+        const chatForm = document.getElementById('chat-form');
+        const chatBox = document.getElementById('chat-box');
+        const messageInput = document.getElementById('message');
+        const groupSelect = document.getElementById('group-select');
+
+        // Current group variable
+        let currentGroup = '<%= userGroup %>'; // Default to the user's initial group
+
+        // Join the initial group on page load
+        socket.emit('join group', currentGroup);
+
+        // Listen for incoming messages
+        socket.on('chat message', (msg) => {
+            const div = document.createElement('div');
+            div.innerHTML = `<strong>${msg.sender}:</strong> ${msg.message}`;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        });
+
+        // Form submission: Send message
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const msg = messageInput.value;
+
+            // Emit the message with the current group
+            socket.emit('chat message', { message: msg, group: currentGroup });
+
+            messageInput.value = ''; // Clear the input field
+        });
+
+        // Group selection: Switch group
+        groupSelect.addEventListener('change', () => {
+            const selectedGroup = groupSelect.value;
+
+            if (selectedGroup !== currentGroup) {
+                currentGroup = selectedGroup;
+                socket.emit('join group', currentGroup);
+
+                // Clear the chat box and request new messages for the group
+                chatBox.innerHTML = `<div class="text-muted">Switched to ${currentGroup} group...</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

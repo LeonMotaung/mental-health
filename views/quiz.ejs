@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-700 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="/dashboard" class="text-white text-2xl font-bold">Dashboard</a>
+            <button class="lg:hidden text-white" id="navbar-toggle">
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white"></span>
+            </button>
+            <div class="hidden lg:flex space-x-6">
+                <a href="/quiz" class="text-white hover:text-gray-200">Quiz</a>
+                <a href="/logout" class="text-white hover:text-gray-200">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mx-auto mt-8 px-4">
+        <h1 class="text-3xl font-semibold text-teal-700 mb-4">Personalized Quiz</h1>
+        <form action="/submit-quiz" method="POST" class="space-y-6">
+            <div class="mb-4">
+                <label for="hobbies" class="block text-lg font-medium text-gray-700">What are your hobbies? (Select one only)</label>
+                <select name="hobbies" id="hobbies" class="form-multiselect block w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500" multiple>
+                    <option value="Reading">Reading</option>
+                    <option value="Working Out">Working Out</option>
+                    <option value="Videogames">Videogames</option>
+                    <option value="Listening to Music">Listening to Music</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Crocheting">Crocheting</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="personality" class="block text-lg font-medium text-gray-700">Are you an introvert, extrovert, or ambivert?</label>
+                <select name="personality" id="personality" class="form-select block w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="Introvert">Introvert</option>
+                    <option value="Extrovert">Extrovert</option>
+                    <option value="Ambivert">Ambivert</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="year" class="block text-lg font-medium text-gray-700">What is your year of study?</label>
+                <select name="year" id="year" class="form-select block w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="First Year">First Year</option>
+                    <option value="Senior">Senior</option>
+                    <option value="Post Grad">Post Grad</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById("navbar-toggle");
+        const menu = document.querySelector("nav .lg\\:flex");
+
+        toggleButton.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

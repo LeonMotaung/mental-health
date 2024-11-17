@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-700 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold">Mental Health Xcellerators</a>
+            <button id="navbar-toggle" class="lg:hidden text-white" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776;</span>
+            </button>
+            <div id="navbar-menu" class="lg:flex space-x-6 hidden lg:block">
+                <a href="/about-us" class="text-white hover:text-gray-200">About Us</a>
+                <a href="/contact-us" class="text-white hover:text-gray-200">Contact Us</a>
+                <a href="/user-profile" class="text-white hover:text-gray-200">User Profile</a>
+                <a href="/logout" class="text-white hover:text-gray-200">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="container mt-8 px-4">
+        <h1 class="text-4xl text-teal-700 font-bold">Welcome to Your Dashboard</h1>
+        <p class="text-lg text-gray-700 mt-2"><%= message %></p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Quiz Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <!-- Updated image with specific width and height -->
+                    <img class="w-full h-48 object-cover" src="/images/PHOTO-2024-11-16-02-35-55.jpg" alt="Quiz Image">
+                    <div class="p-4">
+                        <h5 class="text-xl font-semibold text-teal-700">Quiz</h5>
+                        <p class="text-gray-600 mt-2">Take this quiz to be allocated to a group</p>
+                    </div>
+                    <div class="bg-teal-700 p-4">
+                        <a href="/quiz" class="text-white hover:bg-gray-200 px-6 py-2 rounded-full">Go to Quiz</a>
+                    </div>
+                </div>
+
+                <!-- Anonymous Page Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img class="w-full h-48 object-cover" src="/images/PHOTO-2024-11-16-04-49-10 2.jpg" alt="Anonymous Page Image">
+                    <div class="p-4">
+                        <h5 class="text-xl font-semibold text-teal-700">Anonymous Page</h5>
+                        <p class="text-gray-600 mt-2">Submit your anonymous thoughts and feedback here.</p>
+                    </div>
+                    <div class="bg-teal-700 p-4">
+                        <a href="/journal" class="text-white hover:bg-gray-200 px-6 py-2 rounded-full">Visit Anonymous Page</a>
+                    </div>
+                </div>
+
+                <!-- Activities Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img class="w-full h-48 object-cover" src="/images/PHOTO-2024-11-16-04-07-12.jpg" alt="Activities Image">
+                    <div class="p-4">
+                        <h5 class="text-xl font-semibold text-teal-700">Activities</h5>
+                        <p class="text-gray-600 mt-2">Discover and participate in various activities tailored to your interests.</p>
+                    </div>
+                    <div class="bg-teal-700 p-4">
+                        <a href="/activities" class="text-white hover:bg-gray-200 px-6 py-2 rounded-full">See Activities</a>
+                    </div>
+                </div>
+
+                <!-- Resources Card -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img class="w-full h-48 object-cover" src="/images/PHOTO-2024-11-16-06-07-28.jpg" alt="Resources Image">
+                    <div class="p-4">
+                        <h5 class="text-xl font-semibold text-teal-700">Resources</h5>
+                        <p class="text-gray-600 mt-2">Access valuable resources to help you in your learning and personal growth.</p>
+                    </div>
+                    <div class="bg-teal-700 p-4">
+                        <a href="/resources" class="text-white hover:bg-gray-200 px-6 py-2 rounded-full">Explore Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-teal-700 py-4 text-white">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mental Health Xcellerators. All rights reserved. @ POPIA</p>
+        </div>
+    </footer>
+
+    <!-- Tailwind JS for responsive navbar toggle -->
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function () {
+            const navbarMenu = document.getElementById('navbar-menu');
+            navbarMenu.classList.toggle('hidden');
+            navbarMenu.classList.toggle('lg:flex');
+        });
+    </script>
+</body>
+
+</html>

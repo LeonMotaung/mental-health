@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-poppins bg-teal-100 text-teal-800">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-600 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-2xl font-semibold" href="#">Mental Health Xcellerators</a>
+            <button class="lg:hidden text-white" type="button" id="navbar-toggle">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <div class="lg:flex hidden space-x-6" id="navbar-menu">
+                <a href="/about-us" class="hover:text-gray-200">About Us</a>
+                <a href="/contact-us" class="hover:text-gray-200">Contact Us</a>
+                <a href="/user-profile" class="hover:text-gray-200">User Profile</a>
+                <a href="/logout" class="hover:text-gray-200">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="bg-teal-600 text-white text-center py-16 px-4">
+        <h1 class="text-3xl font-semibold">About Us</h1>
+        <p class="mt-4 text-teal-100">We are a team dedicated to creating a safe space for individuals to connect, support, and grow.</p>
+    </div>
+
+    <!-- Our Mission -->
+    <div class="container mx-auto text-center py-16 px-4">
+        <h2 class="text-xl font-semibold text-teal-800">Our Mission</h2>
+        <p class="mt-4 text-teal-700">We strive to offer mental health support through community, understanding, and real-time conversations. Our goal is to ensure that people feel heard, supported, and empowered to navigate their mental health journey.</p>
+    </div>
+
+    <!-- Meet Our Team -->
+    <div class="container mx-auto py-16 px-4">
+        <h2 class="text-xl font-semibold text-teal-800 text-center">Meet Our Team</h2>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Leon Motaung</h5>
+                <p class="text-teal-600">Full-Stack Developer | UWC faculty of EMS </p>
+            </div>
+            <div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Thembisa Skosana</h5>
+                <p class="text-teal-600">Front-end Developer & UI designer | UWC faculty of Natural Sciences.</p>
+            </div>
+            <div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Bahle Ludidi</h5>
+                <p class="text-teal-600">Full-Stack Developer | UWC faculty of Natural Sciences.</p>
+            </div>
+            <div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Noluthando Mlangeni</h5>
+                <p class="text-teal-600">Researcher & UI designer | UWC faculty of Natural Sciences.</p>
+            </div><div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Tshegofatso Maluka</h5>
+                <p class="text-teal-600">Researcher & Psychological Coach | UWC faculty of Arts.</p>
+            </div><div class="team-card p-6 bg-white rounded-lg shadow-lg border border-teal-800 text-center">
+                <h5 class="text-teal-700 font-semibold">Lucia Malamba</h5>
+                <p class="text-teal-600">Reaseacher & Statistical Analyst | UWC faculty of Natural Sciences.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-teal-600 text-white text-center py-4">
+        <p>&copy; 2024 Mental Health Support Platform. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.getElementById("navbar-toggle").addEventListener("click", function () {
+            const menu = document.getElementById("navbar-menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+
+</html>

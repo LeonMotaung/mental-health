@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-teal-700 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-semibold">Mental Health Xcellerators</a>
+            <button id="navbar-toggle" class="lg:hidden text-white text-2xl" aria-label="Toggle navigation">
+                &#9776;
+            </button>
+            <div id="navbar-menu" class="hidden lg:flex space-x-6">
+                <a href="/about-us" class="hover:text-gray-300">About Us</a>
+                <a href="/contact-us" class="hover:text-gray-300">Contact Us</a>
+                <a href="/user-profile" class="hover:text-gray-300">User Profile</a>
+                <a href="/logout" class="hover:text-gray-300">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- Title -->
+        <h1 class="text-center text-3xl font-bold text-gray-800 mb-6">Anonymous Journal</h1>
+        <!-- Prompt Section -->
+        <div class="bg-blue-100 border border-blue-300 rounded-lg p-4 mb-6">
+            <h5 class="text-lg font-semibold text-blue-700">Today's Prompt:</h5>
+            <p class="mt-2 text-gray-800"><%= prompt %></p>
+        </div>
+        <!-- Journal Form -->
+        <form action="/submit-journal" method="POST" class="mb-8">
+            <div class="mb-4">
+                <textarea name="thought" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-teal-400" rows="5" placeholder="Write your thoughts here..." required></textarea>
+            </div>
+            <button type="submit" class="w-full bg-teal-700 text-white py-2 px-4 rounded-lg hover:bg-teal-800">Submit Your Thought</button>
+        </form>
+        <!-- Journal Entries Section -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Past Journal Entries</h2>
+        <% if (journals && journals.length > 0) { %>
+            <% journals.forEach(entry => { %>
+                <div class="bg-white border border-gray-300 rounded-lg p-4 mb-4">
+                    <p class="text-gray-800"><%= entry.thought %></p>
+                    <p class="text-sm text-gray-500 text-right mt-2">Submitted on <%= new Date(entry.createdAt).toLocaleString() %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p class="text-gray-500">No journal entries available yet. Start by sharing your first thought!</p>
+        <% } %>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-teal-700 py-4 text-white">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mental Health Xcellerators. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for Navbar Toggle -->
+    <script>
+        const toggleButton = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navbarMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

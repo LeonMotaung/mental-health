@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-700 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold">Mental Health Xcellerators</a>
+            <button id="navbar-toggle" class="lg:hidden text-white" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776;</span>
+            </button>
+            <div id="navbar-menu" class="lg:flex space-x-6 hidden lg:block">
+                <a href="/about-us" class="nav-link">About Us</a>
+                <a href="/contact-us" class="nav-link">Contact Us</a>
+                <a href="/user-profile" class="nav-link">User Profile</a>
+                <li class="nav-item" id="authButton"></li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="container mx-auto px-4 max-w-lg">
+            <h1 class="text-center text-3xl font-semibold mb-8">Login</h1>
+            <form action="/login" method="POST" class="bg-white p-8 shadow-lg rounded-lg">
+                <!-- Email Field -->
+                <div class="mb-6">
+                    <label for="email" class="block text-lg text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" name="email" id="email" class="form-input w-full py-2 px-4 border border-teal-300 rounded-lg focus:outline-none focus:border-teal-500" required placeholder="Enter your email" />
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-6">
+                    <label for="password" class="block text-lg text-gray-700 font-medium mb-2">Password</label>
+                    <input type="password" name="password" id="password" class="form-input w-full py-2 px-4 border border-teal-300 rounded-lg focus:outline-none focus:border-teal-500" required placeholder="Enter your password" />
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="bg-teal-700 text-white w-full py-3 rounded-lg hover:bg-teal-800 focus:outline-none">Login</button>
+                </div>
+            </form>
+
+            <!-- Error Message -->
+            <div class="text-center mt-6 text-red-500">
+                <% if (message) { %>
+                    <p class="text-lg"><%= message %></p>
+                <% } %>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-teal-700 text-white py-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Your Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Tailwind JS (used for responsive navbar toggle) -->
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function() {
+            const navbarMenu = document.getElementById('navbar-menu');
+            navbarMenu.classList.toggle('hidden');
+            navbarMenu.classList.toggle('lg:flex');
+        });
+
+        // Simulated Login Check
+        const isLoggedIn = false; // Change this value to test the behavior
+        const authButton = document.getElementById('authButton');
+
+        if (isLoggedIn) {
+            authButton.innerHTML = `<a class="nav-link text-white" href="/logout">Log Out</a>`;
+        } else {
+            authButton.innerHTML = `<a class="nav-link text-white" href="/login">Log In</a>`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #004085 !important; /* Dark blue navbar */
+}
+
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d4d8dd !important;
+}
+
+/* Navbar button (Log In) */
+.navbar-nav .nav-item .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.navbar-nav .nav-item .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* User Profile Content */
+.container {
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+h1.display-4 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #004085; /* Dark blue text */
+}
+
+p.lead {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+table {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+table td {
+    background-color: #f8f9fa;
+}
+
+/* Table Rows on Hover */
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: white;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #d4d8dd;
+}
+
+/* Button Styles */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 1rem;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+footer .list-inline-item {
+    margin-right: 15px;
+}
+
+footer .text-center {
+    margin-top: 20px;
+}

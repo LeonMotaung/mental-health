@@ -1,0 +1,50 @@
+const express = require('express');
+const mongoose = require('mongoose');
+
+const app = express();
+
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
+
+app.listen(3000, () => {
+    console.log('The server is running at port' + "3000")
+})
+
+app.post('/api/applicant', async(req, res) => {
+    try {
+        const Applicant = await Applicant.create(req.body);
+        //we enter status 200 because it's okay
+        res.status(200).json(applicant)
+
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+});
+
+
+mongoose.connect("mongodb+srv://smetchappy:Egd8lV7C8J5mcymM@backeddb.pmksk.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackedDB")
+    .then(() => {
+        app.post('/login', async(req, res) => {
+            var email = request.fields.email;
+            var password = request.fields.password;
+            var user = await database.collection("users").findOne({
+                email: email
+            })
+        });
+        if (user == null) {
+            request.status = "error"
+            request.message = " Email does not exist";
+            result.render("login", {
+                "request": request
+            })
+
+        }
+        console.log("Connected to the database");
+    })
+    .catch(() => {
+        console.log('not connnected to the database ')
+    })

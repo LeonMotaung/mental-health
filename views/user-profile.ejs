@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100"> <!-- Light gray background for the page -->
+    <!-- Navbar -->
+    <nav class="bg-teal-700 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold">Mental Health Xcellerators</a>
+            <div class="space-x-6 hidden lg:flex" id="navbar-menu">
+                <a href="/about-us" class="text-white hover:text-gray-200">About Us</a>
+                <a href="/contact-us" class="text-white hover:text-gray-200">Contact Us</a>
+                <a href="/user-profile" class="text-white hover:text-gray-200">User Profile</a>
+                <% if (typeof user !== 'undefined') { %>
+                    <a href="/logout" class="text-white hover:text-gray-200">Log Out</a>
+                <% } else { %>
+                    <a href="/login" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Log In</a>
+                <% } %>
+            </div>
+            <button class="lg:hidden text-white" id="navbar-toggle">
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- User Profile Content -->
+    <div class="container mx-auto mt-10 px-4">
+        <h1 class="text-3xl font-semibold text-teal-700">User Profile</h1>
+        <p class="mt-2 text-lg">Welcome, <%= user.name %>! Here are your details:</p>
+
+        <div class="mt-8">
+            <table class="table-auto w-full border-collapse border border-gray-300">
+                <tbody>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Name</th>
+                        <td class="px-4 py-2"><%= user.name %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Email</th>
+                        <td class="px-4 py-2"><%= user.email %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Age</th>
+                        <td class="px-4 py-2"><%= user.age || 'N/A' %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Address</th>
+                        <td class="px-4 py-2"><%= user.address || 'N/A' %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Postcode</th>
+                        <td class="px-4 py-2"><%= user.postcode || 'N/A' %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Phone</th>
+                        <td class="px-4 py-2"><%= user.phone || 'N/A' %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Faculty</th>
+                        <td class="px-4 py-2"><%= user.faculty || 'N/A' %></td>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="px-4 py-2 text-left font-medium text-gray-700">Hometown</th>
+                        <td class="px-4 py-2"><%= user.hometown || 'N/A' %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6">
+            <a href="/dashboard" class="bg-teal-600 text-white py-2 px-6 rounded hover:bg-teal-700">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-teal-700 py-4 mt-10 text-white">
+        <div class="container mx-auto text-center">
+            <p class="mb-2">&copy; 2024 Your Application. All rights reserved.</p>
+            <ul class="inline-flex space-x-6">
+                <li><a href="/terms" class="hover:underline">Terms of Service</a></li>
+                <li><a href="/privacy" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById("navbar-toggle");
+        const menu = document.getElementById("navbar-menu");
+
+        toggleButton.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+
+</html>

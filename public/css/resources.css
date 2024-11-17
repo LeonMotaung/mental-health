@@ -1,0 +1,93 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: #5e60ce;
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .intro {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Resource Sections */
+  .resources-section {
+    padding: 2rem 1rem;
+  }
+  
+  .resources-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .resources-section h2 {
+    font-size: 2rem;
+    color: #5e60ce;
+    margin-bottom: 1.5rem;
+  }
+  
+  .resource-list {
+    list-style: none;
+  }
+  
+  .resource-list li {
+    margin: 0.8rem 0;
+  }
+  
+  .resource-list a {
+    color: #5e60ce;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .resource-list a:hover {
+    color: #333;
+  }
+  
+  /* Contact Information */
+  .contact-info {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.5rem;
+    color: #5e60ce;
+  }
+  
+  .contact-info p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .contact-info a {
+    color: #5e60ce;
+    text-decoration: none;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  
