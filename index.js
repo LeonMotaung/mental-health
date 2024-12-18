@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+const mongoUri = process.env.MONGODB_URI;
+const sessionSecret = process.env.SESSION_SECRET;
+
+
 // Session configuration
 app.use(
     session({
